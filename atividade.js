@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 2200;
 
 app.use(express.json());
 
@@ -31,7 +31,10 @@ app.post("/usuario", (req,res) => {
 });
 
 app.get("/limite", (req,res) => {
-
+    res.status(408).json({
+        status: 408,
+        mensagem: '408 Limite de solicitações (408 request timeout)'
+    });
 });
 
 
